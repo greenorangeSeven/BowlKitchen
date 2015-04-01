@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyPageView">
+            <connections>
+                <outlet property="buy_btn" destination="cBn-wO-8q1" id="STw-wY-VO2"/>
+                <outlet property="share_btn" destination="3nU-L6-Jlo" id="YQF-kW-Ren"/>
+                <outlet property="shop_details_webview" destination="ZUH-EC-Je1" id="ysu-G2-UnA"/>
+                <outlet property="shop_img" destination="s2U-Q4-qfu" id="Adl-DY-oIZ"/>
+                <outlet property="shop_name_label" destination="2Sd-VV-AvL" id="rfY-Nm-awF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-L6-Jlo">
+                    <rect key="frame" x="106" y="0.0" width="108" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Bfw-KO-hVh"/>
+                        <constraint firstAttribute="width" constant="108" id="Due-xw-ARF"/>
+                    </constraints>
+                    <state key="normal" image="main_share_btn">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="9j1-cF-F7k"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2U-Q4-qfu">
+                    <rect key="frame" x="18" y="43" width="284" height="166"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="166" id="pTk-jZ-OOm"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBn-wO-8q1">
+                    <rect key="frame" x="109" y="390" width="103" height="32"/>
+                    <color key="backgroundColor" red="0.58431372550000005" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="购 买">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buyAction:" destination="-1" eventType="touchUpInside" id="NCi-E8-3yQ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sd-VV-AvL">
+                    <rect key="frame" x="51" y="229" width="219" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUH-EC-Je1">
+                    <rect key="frame" x="18" y="254" width="284" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="s2U-Q4-qfu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="Mms-L7-cgG"/>
+                <constraint firstAttribute="centerX" secondItem="s2U-Q4-qfu" secondAttribute="centerX" id="Ouf-mj-VIQ"/>
+                <constraint firstAttribute="trailing" secondItem="s2U-Q4-qfu" secondAttribute="trailing" constant="18" id="e8t-I6-rNL"/>
+                <constraint firstAttribute="centerX" secondItem="2Sd-VV-AvL" secondAttribute="centerX" id="oCO-uw-68P"/>
+                <constraint firstAttribute="centerX" secondItem="ZUH-EC-Je1" secondAttribute="centerX" id="pdK-b2-7tP"/>
+                <constraint firstAttribute="centerX" secondItem="cBn-wO-8q1" secondAttribute="centerX" id="txF-Xn-QvS"/>
+                <constraint firstAttribute="centerX" secondItem="3nU-L6-Jlo" secondAttribute="centerX" id="vLQ-QC-lXN"/>
+            </constraints>
+            <point key="canvasLocation" x="375" y="371"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_share_btn" width="185" height="55"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
