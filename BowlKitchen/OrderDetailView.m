@@ -33,6 +33,7 @@
     [lBtn setImage:[UIImage imageNamed:@"navigation_back"] forState:UIControlStateNormal];
     UIBarButtonItem *backbtn = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
     self.navigationItem.leftBarButtonItem = backbtn;
+
     [self bindData];
 }
 

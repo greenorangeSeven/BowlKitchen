@@ -18,17 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bs7-RH-hnz">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bs7-RH-hnz">
                     <rect key="frame" x="21" y="62" width="279" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-2x-tZX">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-2x-tZX">
                     <rect key="frame" x="21" y="105" width="279" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-g5-sxZ">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-g5-sxZ">
                     <rect key="frame" x="21" y="149" width="279" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -56,9 +56,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="H2Y-g5-sxZ" secondAttribute="centerX" id="60A-l1-s0M"/>
+                <constraint firstAttribute="trailing" secondItem="9z2-uX-YaT" secondAttribute="trailing" id="6Fk-5j-6MH"/>
                 <constraint firstAttribute="bottom" secondItem="9z2-uX-YaT" secondAttribute="bottom" constant="63" id="SBt-xl-0YE"/>
+                <constraint firstItem="9z2-uX-YaT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="guy-Q6-34T"/>
+                <constraint firstAttribute="centerX" secondItem="BfH-2x-tZX" secondAttribute="centerX" id="gx9-8S-lIf"/>
                 <constraint firstAttribute="bottom" secondItem="UFQ-YG-yqX" secondAttribute="bottom" constant="8" id="oFv-fJ-Rjw"/>
                 <constraint firstAttribute="centerX" secondItem="UFQ-YG-yqX" secondAttribute="centerX" id="qHO-pQ-Xjv"/>
+                <constraint firstAttribute="centerX" secondItem="bs7-RH-hnz" secondAttribute="centerX" id="vXp-Qk-Cv0"/>
             </constraints>
             <point key="canvasLocation" x="-9" y="175"/>
         </view>

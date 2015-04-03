@@ -242,7 +242,6 @@
     }
     
     [request setUseCookiePersistence:YES];
-    NSLog(@"the response:%@",request.responseString);
     
     NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;

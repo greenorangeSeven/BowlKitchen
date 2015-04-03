@@ -51,7 +51,6 @@
 
 - (IBAction)doRegisterAction:(id)sender
 {
-    self.registerBtn.enabled = NO;
     NSString *mobileStr = self.phoneField.text;
     NSString *pwdStr = self.pwdField.text;
     NSString *verifyCodeStr = self.verfyCodeField.text;
@@ -76,6 +75,7 @@
         return;
     }
     
+    self.registerBtn.enabled = NO;
     //生成注册URL
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:verifyCodeStr forKey:@"validateCode"];
@@ -126,7 +126,6 @@
     }
     
     [request setUseCookiePersistence:YES];
-    NSLog(@"%@",request.responseString);
     NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -145,11 +144,16 @@
     else
     {
         [Tool showCustomHUD:@"注册成功" andView:self.view andImage:nil andAfterDelay:1.2f];
-        NSMutableArray *array = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-        [array removeLastObject];
-        self.navigationController.viewControllers = array;
-        [self.navigationController pushViewController:[[LoginView alloc] init] animated:YES];
+        [self performSelector:@selector(doback) withObject:nil afterDelay:1.2f];
     }
+}
+
+- (void)doback
+{
+    NSMutableArray *array = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+    [array removeLastObject];
+    self.navigationController.viewControllers = array;
+    [self.navigationController pushViewController:[[LoginView alloc] init] animated:YES];
 }
 
 - (IBAction)doSendCodeAction:(id)sender
@@ -205,6 +209,7 @@
     }
     else
     {
+        [Tool showCustomHUD:@"验证码已发送,请注意查收" andView:self.view andImage:nil andAfterDelay:1.2f];
         verifyMobileStr = self.phoneField.text;
         self.sendCodeBtn.hidden = YES;
     }

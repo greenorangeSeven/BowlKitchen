@@ -13,6 +13,7 @@
 @interface OrderDetailView : UIViewController
 
 @property (retain, nonatomic) MyOrder *myOrder;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shopNameLabel;

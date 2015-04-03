@@ -17,23 +17,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bs7-RH-hnz">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bs7-RH-hnz">
                     <rect key="frame" x="21" y="23" width="279" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-2x-tZX">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-2x-tZX">
                     <rect key="frame" x="21" y="66" width="279" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-g5-sxZ">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="收货人地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-g5-sxZ">
                     <rect key="frame" x="21" y="110" width="279" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="BfH-2x-tZX" secondAttribute="centerX" id="1Al-HF-d6L"/>
+                <constraint firstAttribute="centerX" secondItem="bs7-RH-hnz" secondAttribute="centerX" id="1Dw-wq-yLP"/>
+                <constraint firstAttribute="centerX" secondItem="H2Y-g5-sxZ" secondAttribute="centerX" id="QJm-Jv-Pt8"/>
+            </constraints>
             <point key="canvasLocation" x="-69" y="185"/>
         </view>
     </objects>
