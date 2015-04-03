@@ -11,6 +11,7 @@
 #import "OrderSubmitVO.h"
 #import "MyAddress.h"
 #import "MyAddressView.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface OrderConfirmView ()
 {
@@ -23,6 +24,7 @@
     NSArray *addressArray;
     
     MyAddress *currentAddress;
+    MBProgressHUD *hud;
 }
 @end
 
@@ -31,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
     timeType = 0;
     payType = 1;
     self.hidesBottomBarWhenPushed=YES;
@@ -77,7 +79,7 @@
     [self.forenoonCheckView addSubview:self.forenoonCb];
     [self.afternoonCheckView addSubview:self.afternoonCb];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAddress:) name:@"updateAddress" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToBuy) name:ORDER_PAY_NOTIC object:nil];
     [self getMyAddress];
 }
 
@@ -180,13 +182,6 @@
     NSString *state = [[json objectForKey:@"header"] objectForKey:@"state"];
     if ([state isEqualToString:@"0000"] == NO)
     {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
-                                                     message:[[json objectForKey:@"header"] objectForKey:@"msg"]
-                                                    delegate:nil
-                                           cancelButtonTitle:@"确定"
-                                           otherButtonTitles:nil];
-        av.tag = 0;
-        [av show];
         return;
     }
     else
@@ -210,6 +205,7 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateAddress" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ORDER_PAY_NOTIC object:nil];
 }
 
 - (IBAction)commitOrderAction:(UIButton *)sender
@@ -280,9 +276,9 @@
 
 - (void)requestCCFailed:(ASIHTTPRequest *)request
 {
-    if (request.hud) {
+    if (request.hud)
+    {
         [request.hud hide:NO];
-        
     }
     [Tool showCustomHUD:@"网络连接超时" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
     self.commitBtn.enabled = YES;
@@ -290,12 +286,12 @@
 
 - (void)requestOrder:(ASIHTTPRequest *)request
 {
-    if (request.hud) {
+    if (request.hud)
+    {
         [request.hud hide:YES];
     }
     
     [request setUseCookiePersistence:YES];
-    NSLog(@"%@",request.responseString);
     NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -318,6 +314,75 @@
             [Tool showCustomHUD:@"已下单,请等待送货" andView:self.view andImage:nil andAfterDelay:1.2f];
             [self performSelector:@selector(backToBuy) withObject:self afterDelay:1.2f];
         }
+        else
+        {
+            [Tool showHUD:@"正在支付" andView:self.view andHUD:hud];
+            [self doPay:[[json objectForKey:@"header"] objectForKey:@"msg"]];
+        }
+    }
+}
+
+- (void)doPay:(NSString *)orderNo
+{
+    
+    //生成支付宝订单URL
+    NSString *createOrderUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_createAlipayParams];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:createOrderUrl]];
+    [request setUseCookiePersistence:NO];
+    [request setTimeOutSeconds:30];
+    [request setPostValue:orderNo forKey:@"orderId"];
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestPayFailed:)];
+    [request setDidFinishSelector:@selector(requestCreate:)];
+    [request startAsynchronous];
+    request.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    
+}
+
+- (void)requestPayFailed:(ASIHTTPRequest *)request
+{
+    if (hud)
+    {
+        [hud hide:NO];
+    }
+    [Tool showCustomHUD:@"网络连接超时" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+}
+
+- (void)requestCreate:(ASIHTTPRequest *)request
+{
+    if (hud)
+    {
+        [hud hide:YES];
+    }
+    
+    [request setUseCookiePersistence:YES];
+    NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    NSString *state = [json objectForKey:@"state"];
+    if ([state isEqualToString:@"0000"] == NO) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
+                                                     message:[[json objectForKey:@"header"] objectForKey:@"msg"]
+                                                    delegate:nil
+                                           cancelButtonTitle:@"确定"
+                                           otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    else
+    {
+        NSString *orderStr = [json objectForKey:@"msg"];
+        [[AlipaySDK defaultService] payOrder:orderStr fromScheme:@"BowlKitchenAlipay" callback:^(NSDictionary *resultDic)
+         {
+             NSString *resultState = resultDic[@"resultStatus"];
+             if([resultState isEqualToString:ORDER_PAY_OK])
+             {
+                 [Tool showCustomHUD:@"已付款,请等待发货" andView:self.view andImage:nil andAfterDelay:1.2f];
+                 [self performSelector:@selector(backToBuy) withObject:self afterDelay:1.2f];
+             }
+         }];
     }
 }
 
