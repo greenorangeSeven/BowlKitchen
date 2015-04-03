@@ -9,13 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DayQuestionPageView : UIViewController
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UILabel *textHint;
-@property (weak, nonatomic) IBOutlet UIButton *commitBtn;
-
-- (IBAction)commitAction:(id)sender;
 
 @end

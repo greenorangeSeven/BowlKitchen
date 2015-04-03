@@ -3,14 +3,15 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="hyn1gjm.ttf">
+            <string>HYn1gj</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DayQuestionPageView">
             <connections>
-                <outlet property="commitBtn" destination="3WV-Oy-xg9" id="UYa-7k-3yg"/>
                 <outlet property="questionLabel" destination="qjR-AS-2xd" id="z78-Q8-RBx"/>
-                <outlet property="scrollView" destination="acW-tQ-vOP" id="v5A-85-Wiu"/>
-                <outlet property="textHint" destination="xsc-gb-Jci" id="kkE-EP-BLr"/>
-                <outlet property="textView" destination="FPc-at-Y6k" id="dS8-N4-BeE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,45 +20,33 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acW-tQ-vOP">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="送祝福" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-AS-2xd">
-                            <rect key="frame" x="15" y="37" width="297" height="52"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPc-at-Y6k">
-                            <rect key="frame" x="12" y="97" width="297" height="182"/>
-                            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请简要回答该问题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-gb-Jci">
-                            <rect key="frame" x="31" y="112" width="133" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WV-Oy-xg9">
-                            <rect key="frame" x="107" y="354" width="106" height="39"/>
-                            <color key="backgroundColor" red="0.90980392160000001" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <state key="normal" title="提  交">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="commitAction:" destination="-1" eventType="touchUpInside" id="xcP-aw-T0a"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="wer42r32" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-AS-2xd">
+                    <rect key="frame" x="28" y="18" width="265" height="76"/>
+                    <fontDescription key="fontDescription" name="HYn1gj" family="HYShuTongJ" pointSize="25"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wen_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-oQ-azH">
+                    <rect key="frame" x="28" y="133" width="265" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="240" id="2hi-cO-1Sn"/>
+                        <constraint firstAttribute="width" constant="265" id="sET-ox-aNc"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="358" y="371"/>
+            <constraints>
+                <constraint firstItem="qjR-AS-2xd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="8sg-l9-HPp"/>
+                <constraint firstAttribute="centerX" secondItem="hu1-oQ-azH" secondAttribute="centerX" id="BlT-zX-asi"/>
+                <constraint firstAttribute="trailing" secondItem="qjR-AS-2xd" secondAttribute="trailing" constant="27" id="GsJ-tg-RcE"/>
+                <constraint firstItem="qjR-AS-2xd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="IGv-dY-8TI"/>
+                <constraint firstItem="hu1-oQ-azH" firstAttribute="top" secondItem="qjR-AS-2xd" secondAttribute="bottom" constant="39" id="XF5-G8-Xt1"/>
+            </constraints>
+            <point key="canvasLocation" x="-90" y="-3"/>
         </view>
     </objects>
+    <resources>
+        <image name="wen_bg" width="640" height="635"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
