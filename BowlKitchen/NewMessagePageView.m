@@ -189,7 +189,7 @@
             
             News *news = [newArray objectAtIndex:indexPath.row];
             
-            cell.summaryLabel.text = [Tool filterHTML:news.content];
+            cell.summaryLabel.text = news.newsTitle;
             cell.timeLabel.text = [Tool TimestampToDateStr:news.starttimeStamp andFormatterStr:@"yyyy年MM月dd日 HH:mm"];
             return cell;
         }

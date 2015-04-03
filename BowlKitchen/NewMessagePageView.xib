@@ -15,17 +15,35 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Fh-Xw-Ja1">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Fh-Xw-Ja1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newmessagebg" id="MWM-RJ-WbH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="ipQ-UY-Okt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newmessagebg" translatesAutoresizingMaskIntoConstraints="NO" id="U9e-Sw-UpJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="U9e-Sw-UpJ" secondAttribute="trailing" id="HJg-sb-5cJ"/>
+                            <constraint firstItem="U9e-Sw-UpJ" firstAttribute="leading" secondItem="ipQ-UY-Okt" secondAttribute="leading" id="VsK-W9-tYs"/>
+                            <constraint firstAttribute="bottom" secondItem="U9e-Sw-UpJ" secondAttribute="bottom" constant="6" id="bgK-fe-CCf"/>
+                            <constraint firstItem="U9e-Sw-UpJ" firstAttribute="top" secondItem="ipQ-UY-Okt" secondAttribute="top" id="vW2-qT-WKr"/>
+                        </constraints>
+                    </view>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="358" y="371"/>
+            <constraints>
+                <constraint firstItem="0Fh-Xw-Ja1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JOc-bC-uZs"/>
+                <constraint firstAttribute="trailing" secondItem="0Fh-Xw-Ja1" secondAttribute="trailing" id="cFV-EA-7GX"/>
+                <constraint firstItem="0Fh-Xw-Ja1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v2z-gK-8ZK"/>
+                <constraint firstAttribute="bottom" secondItem="0Fh-Xw-Ja1" secondAttribute="bottom" id="v9K-5P-wuY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
