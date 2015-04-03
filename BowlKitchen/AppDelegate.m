@@ -12,6 +12,7 @@
 #import "DayQuestionPageView.h"
 #import "NewMessagePageView.h"
 #import "BuyPageView.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface AppDelegate ()
 
@@ -67,39 +68,32 @@
     [_window setRootViewController:_tabBarController];
     [_window makeKeyAndVisible];
 
-    // Below you will find an example of possible customization, just uncomment the lines
-    
-    /*
-     // Tab background Image
-     [_tabBarController setBackgroundImageName:@"noise-dark-gray.png"];
-     [_tabBarController setSelectedBackgroundImageName:@"noise-dark-blue.png"];
-     
-     
-     
-     // Tabs Colors settings
-     [_tabBarController setTabColors:@[[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.0],
-     [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0]]]; // MAX 2 Colors
-     
-     [_tabBarController setSelectedTabColors:@[[UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0],
-     [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0]]]; // MAX 2 Colors
-     
-     
-     
-     // Icons Color settings
-     [_tabBarController setIconColors:@[[UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1],
-     [UIColor colorWithRed:228.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1]]]; // MAX 2 Colors
-     
-     [_tabBarController setSelectedIconColors:@[[UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1],
-     [UIColor colorWithRed:228.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1]]]; // MAX 2 Colors
-     
-     // Text Color
-     [_tabBarController setTextColor:[UIColor colorWithRed:157.0/255.0 green:157.0/255.0 blue:157.0/255.0 alpha:1.0]];
-     [_tabBarController setSelectedTextColor:[UIColor colorWithRed:228.0/255.0 green:228.0/255.0 blue:228.0/255.0 alpha:1.0]];
-     
-     // Hide / Show glossy on tab icons
-     [_tabBarController setIconGlossyIsHidden:YES];
-     */
+    return YES;
+}
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    //如果极简 SDK 不可用,会跳转支付宝钱包进行支付,需要将支付宝钱包的支付结果回传给 SDK
+    if ([url.host isEqualToString:@"safepay"]) {
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSString *resultState = resultDic[@"resultStatus"];
+             if([resultState isEqualToString:ORDER_PAY_OK])
+             {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:ORDER_PAY_NOTIC object:nil];
+             }
+         }];
+    }
+    if ([url.host isEqualToString:@"platformapi"])
+    {//支付宝钱包快登授权返回 authCode
+        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSString *resultState = resultDic[@"resultStatus"];
+             if([resultState isEqualToString:ORDER_PAY_OK])
+             {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:ORDER_PAY_NOTIC object:nil];
+             }
+         }];
+    }
     return YES;
 }
 
