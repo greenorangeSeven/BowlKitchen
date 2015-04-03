@@ -38,6 +38,7 @@
 		04B2757D1AB6C966002A7CE0 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04B275711AB6C966002A7CE0 /* IQKeyboardManager.bundle */; };
 		04C6D4211AC1437000EE056F /* OrderConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C6D41F1AC1437000EE056F /* OrderConfirmView.m */; };
 		04C6D4221AC1437000EE056F /* OrderConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C6D4201AC1437000EE056F /* OrderConfirmView.xib */; };
+		04C7E6BE1ACD1A3B00581D70 /* hyn1gjm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04C7E6BD1ACD1A3B00581D70 /* hyn1gjm.ttf */; };
 		04C911721AAD75D9004A5C63 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C911711AAD75D9004A5C63 /* UserModel.m */; };
 		04C911811AAD8D29004A5C63 /* AKTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C911751AAD8D29004A5C63 /* AKTab.m */; };
 		04C911821AAD8D29004A5C63 /* AKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C911771AAD8D29004A5C63 /* AKTabBar.m */; };
@@ -341,6 +342,7 @@
 		04C6D41E1AC1437000EE056F /* OrderConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderConfirmView.h; sourceTree = "<group>"; };
 		04C6D41F1AC1437000EE056F /* OrderConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderConfirmView.m; sourceTree = "<group>"; };
 		04C6D4201AC1437000EE056F /* OrderConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderConfirmView.xib; sourceTree = "<group>"; };
+		04C7E6BD1ACD1A3B00581D70 /* hyn1gjm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hyn1gjm.ttf; sourceTree = "<group>"; };
 		04C911701AAD75D9004A5C63 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		04C911711AAD75D9004A5C63 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		04C911741AAD8D29004A5C63 /* AKTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTab.h; sourceTree = "<group>"; };
@@ -1211,6 +1213,7 @@
 		04E90ADC1AAD3E80005409D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04C7E6BD1ACD1A3B00581D70 /* hyn1gjm.ttf */,
 				04E90ADD1AAD3E80005409D8 /* Info.plist */,
 				04E90ADE1AAD3E80005409D8 /* main.m */,
 				04E90D731AAD4047005409D8 /* BowlKitchen-Prefix.pch */,
@@ -2152,6 +2155,7 @@
 				04E90D5A1AAD3F9C005409D8 /* cb_glossy_off.png in Resources */,
 				04C911831AAD8D29004A5C63 /* AKTabBarController.bundle in Resources */,
 				04B275451AB6AA14002A7CE0 /* RegisterView.xib in Resources */,
+				04C7E6BE1ACD1A3B00581D70 /* hyn1gjm.ttf in Resources */,
 				0433919C1ABBC9A2004333D5 /* Localizable.strings in Resources */,
 				04E90D581AAD3F9C005409D8 /* cb_dark_on.png in Resources */,
 				04E1F2CF1ACA3DCF0080DD25 /* NewMessageCell.xib in Resources */,
@@ -2516,10 +2520,7 @@
 		04E90B001AAD3E80005409D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2548,10 +2549,7 @@
 		04E90B011AAD3E80005409D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
