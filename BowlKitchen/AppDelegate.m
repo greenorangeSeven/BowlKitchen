@@ -13,6 +13,10 @@
 #import "NewMessagePageView.h"
 #import "BuyPageView.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import <ShareSDK/ShareSDK.h>
+#import "WXApi.h"
+#import "WeiboApi.h"
+#import "WeiboSDK.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +27,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    [ShareSDK registerApp:@"68c317114866"];//字符串api20为您的ShareSDK的AppKey
+//    
+//    //添加新浪微博应用 注册网址 http://open.weibo.com
+//    [ShareSDK connectSinaWeiboWithAppKey:@"568898243"
+//                               appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+//                             redirectUri:@"http://www.sharesdk.cn"];
+//    //当使用新浪微博客户端分享的时候需要按照下面的方法来初始化新浪的平台
+//    [ShareSDK  connectSinaWeiboWithAppKey:@"568898243"
+//                                appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+//                              redirectUri:@"http://www.sharesdk.cn"
+//                              weiboSDKCls:[WeiboSDK class]];
+//    
+//    //添加腾讯微博应用 注册网址 http://dev.t.qq.com
+//    [ShareSDK connectTencentWeiboWithAppKey:@"801562425"
+//                                  appSecret:@"edae0ba947ac89604f11794fec234f3e"
+//                                redirectUri:@"http://www.sharesdk.cn"
+//                                   wbApiCls:[WeiboApi class]];
+//    
+//    //添加微信应用 注册网址 http://open.weixin.qq.com
+//    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"
+//                           wechatCls:[WXApi class]];
+    
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     //检查网络是否存在 如果不存在 则弹出提示
     [UserModel Instance].isNetworkRunning = [CheckNetwork isExistenceNetwork];

@@ -7,11 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderConfirmView">
             <connections>
                 <outlet property="addressText" destination="bt4-dq-jfT" id="Xee-4B-GNU"/>
-                <outlet property="afternoonCheckView" destination="x8a-Ba-U45" id="lEN-S4-Q4i"/>
                 <outlet property="alipayTypeBtn" destination="dSK-x3-SG1" id="7xy-lb-n4D"/>
                 <outlet property="commitBtn" destination="FPH-Iy-D5q" id="Wsn-ws-mIV"/>
-                <outlet property="forenoonCheckView" destination="5de-1t-rys" id="3Wa-xQ-MzD"/>
                 <outlet property="shopTypeBtn" destination="KD8-F3-RwT" id="hYd-e0-Rd9"/>
+                <outlet property="timeTextField" destination="epY-Yy-7on" id="e2e-LF-uxX"/>
                 <outlet property="updateBtn" destination="zva-po-K7O" id="wcH-va-15h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,26 +33,6 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="选择送货时间:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdX-um-tQs">
                     <rect key="frame" x="20" y="157" width="82" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5de-1t-rys">
-                    <rect key="frame" x="110" y="157" width="25" height="25"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上午 11:00-12:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjD-GW-Xud">
-                    <rect key="frame" x="149" y="164" width="102" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-Ba-U45">
-                    <rect key="frame" x="110" y="190" width="25" height="25"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下午 17:00-18:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioW-kM-30Y">
-                    <rect key="frame" x="149" y="197" width="102" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -138,6 +117,11 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择送货时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="epY-Yy-7on">
+                    <rect key="frame" x="116" y="157" width="143" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -155,7 +139,7 @@
                 <constraint firstItem="8zO-hU-yuV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xQn-l4-qVs"/>
                 <constraint firstAttribute="bottom" secondItem="8zO-hU-yuV" secondAttribute="bottom" constant="63" id="y07-cF-vEm"/>
             </constraints>
-            <point key="canvasLocation" x="341" y="215"/>
+            <point key="canvasLocation" x="444" y="116"/>
         </view>
     </objects>
     <resources>

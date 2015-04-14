@@ -13,10 +13,10 @@
 #import "MyAddressView.h"
 #import <AlipaySDK/AlipaySDK.h>
 
-@interface OrderConfirmView ()
+@interface OrderConfirmView ()<UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate>
 {
-    //送货时间(0,上午. 1,下午)
-    NSInteger timeType;
+    //送货时间
+    NSInteger selectTime;
     
     //付款方式(1,货到付款. 0,支付宝)
     NSInteger payType;
@@ -26,6 +26,11 @@
     MyAddress *currentAddress;
     MBProgressHUD *hud;
 }
+
+@property (nonatomic, strong) NSArray *fieldArray;
+
+@property (nonatomic, strong) UIPickerView *timePicker;
+
 @end
 
 @implementation OrderConfirmView
@@ -34,7 +39,6 @@
 {
     [super viewDidLoad];
     hud = [[MBProgressHUD alloc] initWithView:self.view];
-    timeType = 0;
     payType = 1;
     self.hidesBottomBarWhenPushed=YES;
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
@@ -69,51 +73,15 @@
     layer.borderWidth = 1.0f;
     layer.cornerRadius = 3.0;
     
-    //上午复选框
-    self.forenoonCb = [[SSCheckBoxView alloc] initWithFrame:CGRectMake(0, 0, 25, 25) style:kSSCheckBoxViewStyleGlossy checked:YES];
-    //下午复选框
-    self.afternoonCb = [[SSCheckBoxView alloc] initWithFrame:CGRectMake(0, 0, 25, 25) style:kSSCheckBoxViewStyleGlossy checked:NO];
-    [self.forenoonCb setStateChangedTarget:self selector:@selector(forenoonCheck:)];
-    [self.afternoonCb setStateChangedTarget:self selector:@selector(afternoonCheck:)];
+    self.timeTextField.delegate = self;
     
-    [self.forenoonCheckView addSubview:self.forenoonCb];
-    [self.afternoonCheckView addSubview:self.afternoonCb];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAddress:) name:@"updateAddress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToBuy) name:ORDER_PAY_NOTIC object:nil];
+    _fieldArray = [NSArray arrayWithObjects:@"11:30", @"12:30" ,@"1:30", @"2:30", @"3:30", @"4:30", @"5:30", @"6:30", @"7:30", @"8:30",nil];
+    
     [self getMyAddress];
 }
 
-- (void)forenoonCheck:(id)sender
-{
-    if(self.forenoonCb.checked)
-    {
-        self.afternoonCb.checked = NO;
-        timeType = 0;
-    }
-    else
-    {
-        if(!self.afternoonCb.checked)
-        {
-            self.forenoonCb.checked = YES;
-        }
-    }
-}
-
-- (void)afternoonCheck:(id)sender
-{
-    if(self.afternoonCb.checked)
-    {
-        self.forenoonCb.checked = NO;
-        timeType = 1;
-    }
-    else
-    {
-        if(!self.forenoonCb.checked)
-        {
-            self.afternoonCb.checked = YES;
-        }
-    }
-}
 
 - (void)backAction:(id)sender
 {
@@ -234,7 +202,11 @@
         [Tool showCustomHUD:@"请输入收货人地址" andView:self.view andImage:nil andAfterDelay:1.2f];
         return;
     }
-    
+    if(self.timeTextField.text.length == 0)
+    {
+        [Tool showCustomHUD:@"请选择收货时间" andView:self.view andImage:nil andAfterDelay:1.2f];
+        return;
+    }
     OrderCommoditySubmit *ocs = [[OrderCommoditySubmit alloc] init];
     ocs.commodityId = self.commodityId;
     ocs.num = self.shopNum;
@@ -247,7 +219,7 @@
     ovo.receivingAddress = addressStr;
     ovo.phone = phoneStr;
     ovo.payTypeId = payType;
-    ovo.sendTimeType = timeType;
+    ovo.sendTimeType = selectTime;
     ovo.commodityList = [NSArray arrayWithObjects:ocs, nil];
     NSString *orderJson = [Tool readObjToJson:ovo];
     
@@ -401,5 +373,68 @@
     [self.navigationController pushViewController:myAddressView animated:YES];
 }
 
+#pragma mark Picker Data Source Methods
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _fieldArray.count;
+}
+
+#pragma mark Picker Delegate Methods
+-(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    
+    return [_fieldArray objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    selectTime = row;
+    NSString *str = [_fieldArray objectAtIndex:row];
+    self.timeTextField.text = str;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField.inputAccessoryView == nil)
+    {
+        textField.inputAccessoryView = [self keyboardToolBar:textField.tag];
+    }
+    self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectZero];
+    self.timePicker.showsSelectionIndicator = YES;
+    self.timePicker.delegate = self;
+    self.timePicker.dataSource = self;
+    textField.inputView = self.timePicker;
+    
+}
+
+- (UIToolbar *)keyboardToolBar:(int)fieldIndex
+{
+    UIToolbar *toolBar = [[UIToolbar alloc] init];
+    [toolBar sizeToFit];
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] init];
+    doneButton.tag = fieldIndex;
+    doneButton.title = @"完成";
+    doneButton.style = UIBarButtonItemStyleDone;
+    doneButton.action = @selector(doneClicked:);
+    doneButton.target = self;
+    
+    [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
+    return toolBar;
+}
+
+//用户不滑动UIPickerView控件及滑动操作过快解决方法，不滑动默认选定数组第一个，滑动过快由于先处理doneClicked事件才会触发UIPickerView选定事件，所有还判断了当前选定全局变量是否大于控件数组长度处理
+- (void)doneClicked:(UITextField *)sender
+{
+    NSString *str = [_fieldArray objectAtIndex:selectTime];
+    self.timeTextField.text = str;
+    [self.timeTextField resignFirstResponder];
+}
 
 @end

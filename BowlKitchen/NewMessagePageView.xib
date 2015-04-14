@@ -47,7 +47,7 @@
         </view>
     </objects>
     <resources>
-        <image name="newmessagebg" width="640" height="301"/>
+        <image name="newmessagebg" width="640" height="314"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

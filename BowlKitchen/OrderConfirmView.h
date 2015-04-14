@@ -25,10 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *updateBtn;
 
 - (IBAction)updateAddressAction:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIView *forenoonCheckView;
-
-@property (weak, nonatomic) IBOutlet UIView *afternoonCheckView;
+@property (weak, nonatomic) IBOutlet UITextField *timeTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton *shopTypeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *alipayTypeBtn;

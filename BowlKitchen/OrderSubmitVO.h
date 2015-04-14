@@ -41,7 +41,7 @@
 @property (assign, nonatomic)  NSInteger payTypeId;
 
 /**
- * 支付方式(0:11:00-12:30,1:17:00-18:30)
+ * 支付方式
  */
 @property (assign, nonatomic)  NSInteger sendTimeType;
 

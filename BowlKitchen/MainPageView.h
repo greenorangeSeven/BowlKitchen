@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *main_bg;
 @property (weak, nonatomic) IBOutlet UIImageView *main_fg;
 - (IBAction)playOrPauseAction:(UIButton *)sender;
+- (IBAction)shareAction:(id)sender;
 
 @end

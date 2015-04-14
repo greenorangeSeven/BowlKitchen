@@ -3,11 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="hyn1gjm.ttf">
-            <string>HYn1gj</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DayQuestionPageView">
             <connections>
@@ -20,32 +15,31 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="wer42r32" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-AS-2xd">
-                    <rect key="frame" x="28" y="18" width="265" height="76"/>
-                    <fontDescription key="fontDescription" name="HYn1gj" family="HYShuTongJ" pointSize="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qustion_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-oQ-azH">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-AS-2xd">
+                    <rect key="frame" x="28" y="199" width="265" height="169"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wen_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-oQ-azH">
-                    <rect key="frame" x="28" y="133" width="265" height="240"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="240" id="2hi-cO-1Sn"/>
-                        <constraint firstAttribute="width" constant="265" id="sET-ox-aNc"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qjR-AS-2xd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="8sg-l9-HPp"/>
-                <constraint firstAttribute="centerX" secondItem="hu1-oQ-azH" secondAttribute="centerX" id="BlT-zX-asi"/>
-                <constraint firstAttribute="trailing" secondItem="qjR-AS-2xd" secondAttribute="trailing" constant="27" id="GsJ-tg-RcE"/>
-                <constraint firstItem="qjR-AS-2xd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="IGv-dY-8TI"/>
-                <constraint firstItem="hu1-oQ-azH" firstAttribute="top" secondItem="qjR-AS-2xd" secondAttribute="bottom" constant="39" id="XF5-G8-Xt1"/>
+                <constraint firstAttribute="trailing" secondItem="hu1-oQ-azH" secondAttribute="trailing" id="4YR-0Z-Jfq"/>
+                <constraint firstAttribute="centerX" secondItem="qjR-AS-2xd" secondAttribute="centerX" id="F2q-bI-tOR"/>
+                <constraint firstItem="hu1-oQ-azH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PQ9-BU-qyM"/>
+                <constraint firstAttribute="bottom" secondItem="hu1-oQ-azH" secondAttribute="bottom" id="TxO-RI-pRn"/>
+                <constraint firstAttribute="centerY" secondItem="qjR-AS-2xd" secondAttribute="centerY" id="XxD-Os-mJ4"/>
+                <constraint firstItem="qjR-AS-2xd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="ZNu-9B-Y5b"/>
+                <constraint firstAttribute="trailing" secondItem="qjR-AS-2xd" secondAttribute="trailing" constant="27" id="kFB-3I-oaX"/>
+                <constraint firstItem="hu1-oQ-azH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xVE-4a-19Z"/>
             </constraints>
             <point key="canvasLocation" x="-90" y="-3"/>
         </view>
     </objects>
     <resources>
-        <image name="wen_bg" width="640" height="635"/>
+        <image name="qustion_bg" width="639" height="910"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
