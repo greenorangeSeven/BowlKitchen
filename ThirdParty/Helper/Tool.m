@@ -661,4 +661,15 @@
     }
     return html;
 }
+
+//计算文字的高度
++(int)getTextHeight:(int)width andUIFont:(UIFont *)font andText:(NSString *)txt
+{
+    float fPadding = 16.0;
+    CGSize constraint = CGSizeMake(width - 10 - fPadding, CGFLOAT_MAX);
+//    CGSize size = [txt boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+     CGSize size = [txt sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    float fHeight = size.height + 16.0;
+    return fHeight;
+}
 @end

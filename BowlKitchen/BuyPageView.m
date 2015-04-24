@@ -17,6 +17,7 @@
 @interface BuyPageView ()<UIAlertViewDelegate>
 {
     Commodity *commodity;
+    UIWebView *phoneWebView;
 }
 
 @end
@@ -37,6 +38,11 @@
     [rBtn setImage:[UIImage imageNamed:@"navigation_menu"] forState:UIControlStateNormal];
     UIBarButtonItem *btnTel = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
     self.navigationItem.rightBarButtonItem = btnTel;
+    UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 21, 22)];
+    [lBtn addTarget:self action:@selector(tellAction:) forControlEvents:UIControlEventTouchUpInside];
+    [lBtn setImage:[UIImage imageNamed:@"tousu_tell"] forState:UIControlStateNormal];
+    UIBarButtonItem *backbtn = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+    self.navigationItem.leftBarButtonItem = backbtn;
     
     [self.buy_btn.layer setMasksToBounds:YES];
     [self.buy_btn.layer setCornerRadius:4.0]; //设置矩圆角半径
@@ -47,6 +53,13 @@
     layer.borderWidth = 1.0f;
     layer.cornerRadius = 3.0;
     [self getCommodityInfo];
+}
+
+- (void)tellAction:(id)sender
+{
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", ServiceTell]];
+    phoneWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    [phoneWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
 }
 
 - (void)getCommodityInfo

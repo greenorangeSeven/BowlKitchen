@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMessagePageView">
             <connections>
+                <outlet property="adImgView" destination="U9e-Sw-UpJ" id="XEV-6v-nhE"/>
                 <outlet property="tableView" destination="0Fh-Xw-Ja1" id="4TZ-q8-3aK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newmessagebg" translatesAutoresizingMaskIntoConstraints="NO" id="U9e-Sw-UpJ">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U9e-Sw-UpJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                             </imageView>
                         </subviews>
@@ -46,9 +47,6 @@
             <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
-    <resources>
-        <image name="newmessagebg" width="640" height="314"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DayQuestionPageView">
             <connections>
-                <outlet property="questionLabel" destination="qjR-AS-2xd" id="z78-Q8-RBx"/>
+                <outlet property="faceIv" destination="P3J-Gc-dG6" id="HUX-E2-fub"/>
+                <outlet property="questionText" destination="JCx-Gp-USy" id="ats-vE-R5p"/>
+                <outlet property="tableView" destination="A2K-2k-QHs" id="0VB-CA-Skf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,31 +17,86 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qustion_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hu1-oQ-azH">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bowlkitchen" translatesAutoresizingMaskIntoConstraints="NO" id="P3J-Gc-dG6">
+                    <rect key="frame" x="8" y="12" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="1B3-sg-zQI"/>
+                        <constraint firstAttribute="width" constant="50" id="F59-tW-NN2"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-AS-2xd">
-                    <rect key="frame" x="28" y="199" width="265" height="169"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦人为什么会烦" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-Gp-USy">
+                    <rect key="frame" x="66" y="22" width="231" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="能量碗" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1e-4s-lNd">
+                    <rect key="frame" x="66" y="12" width="231" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.61568627450980395" green="0.12156862745098039" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="温馨提示:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSE-5y-sQq">
+                    <rect key="frame" x="42" y="523" width="64" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.91372549020000005" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="每周点赞最多者可获能量碗赠送猪脚一份" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqq-sc-hVk">
+                    <rect key="frame" x="60" y="543" width="201" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="A2K-2k-QHs">
+                    <rect key="frame" x="13" y="92" width="294" height="430"/>
+                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="sectionIndexTrackingBackgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzO-f3-u4J">
+                    <rect key="frame" x="247" y="70" width="60" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Bl3-2e-iZy"/>
+                        <constraint firstAttribute="height" constant="17" id="CXK-1N-0sT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="回复" image="question_btn_bg">
+                        <color key="titleColor" red="0.54117647058823526" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="replyAction:" destination="-1" eventType="touchUpInside" id="yfD-So-DCJ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="hu1-oQ-azH" secondAttribute="trailing" id="4YR-0Z-Jfq"/>
-                <constraint firstAttribute="centerX" secondItem="qjR-AS-2xd" secondAttribute="centerX" id="F2q-bI-tOR"/>
-                <constraint firstItem="hu1-oQ-azH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PQ9-BU-qyM"/>
-                <constraint firstAttribute="bottom" secondItem="hu1-oQ-azH" secondAttribute="bottom" id="TxO-RI-pRn"/>
-                <constraint firstAttribute="centerY" secondItem="qjR-AS-2xd" secondAttribute="centerY" id="XxD-Os-mJ4"/>
-                <constraint firstItem="qjR-AS-2xd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="ZNu-9B-Y5b"/>
-                <constraint firstAttribute="trailing" secondItem="qjR-AS-2xd" secondAttribute="trailing" constant="27" id="kFB-3I-oaX"/>
-                <constraint firstItem="hu1-oQ-azH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xVE-4a-19Z"/>
+                <constraint firstItem="A2K-2k-QHs" firstAttribute="top" secondItem="CzO-f3-u4J" secondAttribute="bottom" constant="6" id="4eo-eq-9Ng"/>
+                <constraint firstItem="JCx-Gp-USy" firstAttribute="leading" secondItem="P3J-Gc-dG6" secondAttribute="trailing" constant="8" id="AXL-Mj-iAc"/>
+                <constraint firstItem="P3J-Gc-dG6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="Cel-7X-qUG"/>
+                <constraint firstAttribute="trailing" secondItem="CzO-f3-u4J" secondAttribute="trailing" constant="13" id="DHx-zX-j89"/>
+                <constraint firstItem="aqq-sc-hVk" firstAttribute="leading" secondItem="ZSE-5y-sQq" secondAttribute="trailing" constant="-46" id="Fnc-7m-1QV"/>
+                <constraint firstAttribute="trailing" secondItem="A2K-2k-QHs" secondAttribute="trailing" constant="13" id="Kwo-PK-b7I"/>
+                <constraint firstItem="P3J-Gc-dG6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="O4s-10-5DG"/>
+                <constraint firstAttribute="bottom" secondItem="ZSE-5y-sQq" secondAttribute="bottom" constant="24" id="ROL-dp-ci1"/>
+                <constraint firstItem="aqq-sc-hVk" firstAttribute="top" secondItem="ZSE-5y-sQq" secondAttribute="bottom" constant="-1" id="ULl-2O-YLr"/>
+                <constraint firstItem="B1e-4s-lNd" firstAttribute="leading" secondItem="P3J-Gc-dG6" secondAttribute="trailing" constant="8" id="WLt-Za-fpa"/>
+                <constraint firstItem="A2K-2k-QHs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="WQc-wc-Z2X"/>
+                <constraint firstItem="ZSE-5y-sQq" firstAttribute="top" secondItem="A2K-2k-QHs" secondAttribute="bottom" constant="3" id="Wnh-k6-6bT"/>
+                <constraint firstItem="CzO-f3-u4J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="X4x-tc-515"/>
+                <constraint firstItem="CzO-f3-u4J" firstAttribute="top" secondItem="JCx-Gp-USy" secondAttribute="bottom" constant="8" id="ali-nw-Zgl"/>
+                <constraint firstItem="B1e-4s-lNd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="11" id="gap-KM-ypM"/>
+                <constraint firstAttribute="bottom" secondItem="aqq-sc-hVk" secondAttribute="bottom" constant="4" id="pvm-7t-IkY"/>
+                <constraint firstItem="JCx-Gp-USy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="qOQ-2I-Su0"/>
             </constraints>
             <point key="canvasLocation" x="-90" y="-3"/>
         </view>
     </objects>
     <resources>
-        <image name="qustion_bg" width="639" height="910"/>
+        <image name="bowlkitchen" width="120" height="120"/>
+        <image name="question_btn_bg" width="19" height="17"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

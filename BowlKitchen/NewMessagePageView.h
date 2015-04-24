@@ -10,5 +10,6 @@
 
 @interface NewMessagePageView : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *adImgView;
 
 @end

@@ -20,6 +20,7 @@
     AVAudioPlayer *audioPlayer;
     MusicRec *resource;
     BOOL isPaused;
+    UIWebView *phoneWebView;
 }
 
 @end
@@ -44,8 +45,21 @@
     UIBarButtonItem *btnTel = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
     self.navigationItem.rightBarButtonItem = btnTel;
     
+    UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 21, 22)];
+    [lBtn addTarget:self action:@selector(tellAction:) forControlEvents:UIControlEventTouchUpInside];
+    [lBtn setImage:[UIImage imageNamed:@"tousu_tell"] forState:UIControlStateNormal];
+    UIBarButtonItem *backbtn = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+    self.navigationItem.leftBarButtonItem = backbtn;
+    
     [self initMusic];
     [self imageInfo];
+}
+
+- (void)tellAction:(id)sender
+{
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", ServiceTell]];
+    phoneWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    [phoneWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
 }
 
 #pragma mar 初始化音乐

@@ -60,10 +60,13 @@
 
     //首页
     UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController:[[MainPageView alloc] init]];
+    
     //每日一问
     UINavigationController *daysAskNavController = [[UINavigationController alloc] initWithRootViewController:[[DayQuestionPageView alloc] init]];
+    
     //最新资讯
     UINavigationController *newNavController = [[UINavigationController alloc] initWithRootViewController:[[NewMessagePageView alloc] init]];
+    
     //买猪脚
     UINavigationController *buyNavController = [[UINavigationController alloc] initWithRootViewController:[[BuyPageView alloc] init]];
     
@@ -74,9 +77,10 @@
     
     [_tabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                            mainNavController,
+                                           buyNavController,
                                            daysAskNavController,
                                            newNavController,
-                                           buyNavController, nil]];
+                                           nil]];
     
     // Tab background Image
     [_tabBarController setBackgroundImageName:@"navigation_bg.png"];

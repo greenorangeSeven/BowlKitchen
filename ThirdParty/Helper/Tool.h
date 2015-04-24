@@ -120,4 +120,7 @@
 
 //去掉字符串中的html标签
 +(NSString *)filterHTML:(NSString *)html;
+
+//计算文字的高度
++(int)getTextHeight:(int)width andUIFont:(UIFont *)font andText:(NSString *)txt;
 @end

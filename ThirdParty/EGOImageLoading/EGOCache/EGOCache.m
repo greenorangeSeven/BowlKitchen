@@ -297,12 +297,15 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 
 #if TARGET_OS_IPHONE
 
-- (UIImage*)imageForKey:(NSString*)key {
+- (UIImage*)imageForKey:(NSString*)key
+{
 	UIImage* image = nil;
 	
-	@try {
+	@try
+    {
 		image = [NSKeyedUnarchiver unarchiveObjectWithFile:cachePathForKey(_directory, key)];
-	} @catch (NSException* e) {
+	} @catch (NSException* e)
+    {
 		// Surpress any unarchiving exceptions and continue with nil
 	}
 	

@@ -46,15 +46,31 @@
 
 #define AppSecret @"U8di3Du5"
 
-#define api_base_url @"http://192.168.1.15:8080/dwc/"
+//#define api_base_url @"http://192.168.1.21:8080/dwc/"
 
-//#define api_base_url @"http://115.28.21.120:80/"
+#define api_base_url @"http://115.28.21.120:80/"
+
+
+//每页数量
+#define page_count 20
+
+//客服电话
+#define ServiceTell @"13875881977"
+
+//广告
+#define api_findAdInfoList @"apiAppInfo/findAdInfoList.htm"
 
 //每日一问接口
 #define api_findDayQuestion @"apiAppInfo/findDayQuestion.htm"
 
+//每周一问点赞
+#define api_addOrRemoveReplyHeart @"apiAppInfo/addOrRemoveReplyHeart.htm"
+
 //每日一问回答接口
 #define api_addDayQuestionReply @"apiAppInfo/addDayQuestionReply.htm"
+
+//每周一问回复列表
+#define api_findQuestionReplyByPage @"apiAppInfo/findQuestionReplyByPage.htm"
 
 //新闻资讯列表接口
 #define api_findNewsInfoByPage @"apiAppInfo/findNewsInfoByPage.htm"
