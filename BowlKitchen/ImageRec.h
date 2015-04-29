@@ -24,4 +24,7 @@
 
 @property (copy, nonatomic) NSString *fontImgDiskPath;
 
+@property (copy, nonatomic) NSString *shareImg;
+
+@property (copy, nonatomic) NSString *shareImgFull;
 @end

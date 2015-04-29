@@ -21,6 +21,7 @@
     MusicRec *resource;
     BOOL isPaused;
     UIWebView *phoneWebView;
+    ImageRec *imageRec;
 }
 
 @end
@@ -148,14 +149,14 @@
 //    tomorrowTimeSps = [Tool TimestampToDateStr:tomorrowTimeSps andFormatterStr:@"yyyy-MM-dd"];
     
     EGOCache *cache = [EGOCache globalCache];
-    ImageRec *todayImg = (ImageRec *)[cache objectForKey:todayTimeSps];
+    imageRec = (ImageRec *)[cache objectForKey:todayTimeSps];
     
     //显示今天的图片
-    if(todayImg)
+    if(imageRec)
     {
-        [self.main_bg sd_setImageWithURL:[NSURL URLWithString:todayImg.bgImgFull]];
+        [self.main_bg sd_setImageWithURL:[NSURL URLWithString:imageRec.bgImgFull]];
         
-        [self.main_fg sd_setImageWithURL:[NSURL URLWithString:todayImg.fontImgFull]];
+        [self.main_fg sd_setImageWithURL:[NSURL URLWithString:imageRec.fontImgFull]];
     }
     else
     {
@@ -221,11 +222,13 @@
 
 - (void)requestImage:(ASIHTTPRequest *)request
 {
-    if (request.hud) {
+    if (request.hud)
+    {
         [request.hud hide:YES];
     }
     
     [request setUseCookiePersistence:YES];
+    NSLog(@"the re:%@",request.responseString);
     NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -237,7 +240,7 @@
     }
     else
     {
-        ImageRec *imageRec = [Tool readJsonDicToObj:[json objectForKey:@"data"] andObjClass:[ImageRec class]];
+        imageRec = [Tool readJsonDicToObj:[json objectForKey:@"data"] andObjClass:[ImageRec class]];
         [self.main_bg sd_setImageWithURL:[NSURL URLWithString:imageRec.bgImgFull]];
         
         [self.main_fg sd_setImageWithURL:[NSURL URLWithString:imageRec.fontImgFull]];
@@ -322,15 +325,13 @@
 
 - (IBAction)shareAction:(id)sender
 {
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
-    
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
-                                       defaultContent:@"测试一下"
-                                                image:[ShareSDK imageWithPath:imagePath]
-                                                title:@"ShareSDK"
-                                                  url:@"http://www.mob.com"
-                                          description:@"这是一条测试信息"
+    id<ISSContent> publishContent = [ShareSDK content:@"能量碗"
+                                       defaultContent:@"能量碗"
+                                                image:[ShareSDK imageWithPath:imageRec.shareImgFull]
+                                                title:@"能量碗"
+                                                  url:@"http://www.668app.com"
+                                          description:@"能量碗"
                                             mediaType:SSPublishContentMediaTypeNews];
     //创建弹出菜单容器
     id<ISSContainer> container = [ShareSDK container];
@@ -347,11 +348,11 @@
                                 
                                 if (state == SSResponseStateSuccess)
                                 {
-                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+                                    [Tool showCustomHUD:@"分享成功" andView:self.view andImage:nil andAfterDelay:1.2f];
                                 }
                                 else if (state == SSResponseStateFail)
                                 {
-                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+                                    [Tool showCustomHUD:@"分享失败" andView:self.view andImage:nil andAfterDelay:1.2f];
                                 }
                             }];
 }

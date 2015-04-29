@@ -218,7 +218,7 @@
     ovo.receivingUserName = nameStr;
     ovo.receivingAddress = addressStr;
     ovo.phone = phoneStr;
-    ovo.payTypeId = payType;
+    ovo.payTypeId = 2;
     ovo.sendTimeType = selectTime;
     ovo.commodityList = [NSArray arrayWithObjects:ocs, nil];
     NSString *orderJson = [Tool readObjToJson:ovo];

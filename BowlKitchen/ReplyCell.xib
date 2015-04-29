@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvK-hL-HyX">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvK-hL-HyX">
                         <rect key="frame" x="8" y="4" width="304" height="38"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -22,7 +22,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-F6-z2N">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-F6-z2N">
                         <rect key="frame" x="236" y="51" width="80" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
@@ -31,19 +31,28 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-PL-j9N">
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-PL-j9N">
                         <rect key="frame" x="0.0" y="73" width="320" height="1"/>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="b1U-F6-z2N" secondAttribute="trailing" constant="4" id="XdY-ot-0o7"/>
+                    <constraint firstItem="b1U-F6-z2N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="51" id="bS6-fe-DCI"/>
+                    <constraint firstAttribute="trailing" secondItem="2U6-PL-j9N" secondAttribute="trailing" id="eL6-1G-3Ej"/>
+                    <constraint firstItem="2U6-PL-j9N" firstAttribute="top" secondItem="b1U-F6-z2N" secondAttribute="bottom" id="gq9-Xr-ok8"/>
+                    <constraint firstItem="QvK-hL-HyX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="mZh-HH-z0E"/>
+                    <constraint firstItem="2U6-PL-j9N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="q3g-4A-N8z"/>
+                    <constraint firstItem="QvK-hL-HyX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="rAK-65-gPs"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="replyContent" destination="QvK-hL-HyX" id="Ksj-uY-2lY"/>
                 <outlet property="zanBtn" destination="b1U-F6-z2N" id="6vn-ft-5He"/>
             </connections>
-            <point key="canvasLocation" x="306" y="231"/>
+            <point key="canvasLocation" x="411" y="220"/>
         </tableViewCell>
     </objects>
     <resources>

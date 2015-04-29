@@ -15,8 +15,6 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
-#import "WeiboApi.h"
-#import "WeiboSDK.h"
 
 @interface AppDelegate ()
 
@@ -27,8 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [ShareSDK registerApp:@"68c317114866"];//字符串api20为您的ShareSDK的AppKey
-//    
+    [ShareSDK registerApp:@"68c317114866"];//字符串api20为您的ShareSDK的AppKey
+//
 //    //添加新浪微博应用 注册网址 http://open.weibo.com
 //    [ShareSDK connectSinaWeiboWithAppKey:@"568898243"
 //                               appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
@@ -45,10 +43,10 @@
 //                                redirectUri:@"http://www.sharesdk.cn"
 //                                   wbApiCls:[WeiboApi class]];
 //    
-//    //添加微信应用 注册网址 http://open.weixin.qq.com
-//    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"
-//                           wechatCls:[WXApi class]];
-    
+    //添加微信应用 注册网址 http://open.weixin.qq.com
+    [ShareSDK connectWeChatWithAppId:@"wx7be4f19f225afce5"   //微信APPID
+                           appSecret:@"f7396e3715c3a31cdf86c307caa2a3fb"  //微信APPSecret
+                           wechatCls:[WXApi class]];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     //检查网络是否存在 如果不存在 则弹出提示
     [UserModel Instance].isNetworkRunning = [CheckNetwork isExistenceNetwork];
@@ -101,9 +99,17 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //如果极简 SDK 不可用,会跳转支付宝钱包进行支付,需要将支付宝钱包的支付结果回传给 SDK
-    if ([url.host isEqualToString:@"safepay"]) {
+    if ([url.host isEqualToString:@"safepay"])
+    {
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic)
          {
              NSString *resultState = resultDic[@"resultStatus"];
@@ -112,6 +118,7 @@
                  [[NSNotificationCenter defaultCenter] postNotificationName:ORDER_PAY_NOTIC object:nil];
              }
          }];
+        return YES;
     }
     if ([url.host isEqualToString:@"platformapi"])
     {//支付宝钱包快登授权返回 authCode
@@ -123,8 +130,13 @@
                  [[NSNotificationCenter defaultCenter] postNotificationName:ORDER_PAY_NOTIC object:nil];
              }
          }];
+        return YES;
     }
-    return YES;
+    
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

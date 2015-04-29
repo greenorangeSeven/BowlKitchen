@@ -9,7 +9,6 @@
                 <outlet property="addressText" destination="bt4-dq-jfT" id="Xee-4B-GNU"/>
                 <outlet property="alipayTypeBtn" destination="dSK-x3-SG1" id="7xy-lb-n4D"/>
                 <outlet property="commitBtn" destination="FPH-Iy-D5q" id="Wsn-ws-mIV"/>
-                <outlet property="shopTypeBtn" destination="KD8-F3-RwT" id="hYd-e0-Rd9"/>
                 <outlet property="timeTextField" destination="epY-Yy-7on" id="e2e-LF-uxX"/>
                 <outlet property="updateBtn" destination="zva-po-K7O" id="wcH-va-15h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -42,30 +41,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KD8-F3-RwT">
-                    <rect key="frame" x="105" y="248" width="75" height="24"/>
-                    <color key="backgroundColor" red="0.91372549020000005" green="0.55294117649999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="货到付款">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="shopTypeAction:" destination="-1" eventType="touchUpInside" id="Hfq-Sg-VUj"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSK-x3-SG1">
-                    <rect key="frame" x="210" y="248" width="75" height="24"/>
-                    <color key="backgroundColor" red="0.58431372549019611" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="支付宝">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="alipayTypeAction:" destination="-1" eventType="touchUpInside" id="8rf-ae-eG1"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zO-hU-yuV">
                     <rect key="frame" x="0.0" y="504" width="320" height="1"/>
                     <color key="backgroundColor" red="0.62352941179999999" green="0.62352941179999999" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,6 +97,15 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSK-x3-SG1">
+                    <rect key="frame" x="116" y="248" width="75" height="24"/>
+                    <color key="backgroundColor" red="0.58431372549019611" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="支付宝">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

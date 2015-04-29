@@ -13,6 +13,7 @@
 #import "ReplyCell.h"
 #import "LoginView.h"
 #import "RegisterView.h"
+#import "ReplyView.h"
 
 @interface DayQuestionPageView ()<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,UIAlertViewDelegate>
 {
@@ -86,7 +87,15 @@
     self.faceIv.layer.cornerRadius=self.faceIv.frame.size.width/2;    //最重要的是这个地方要设成imgview高的一半
     self.faceIv.backgroundColor = [UIColor whiteColor];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticReload:) name:@"noticeReload" object:nil];
     [self getQuestion];
+}
+
+- (void)noticReload:(NSNotification *)notification
+{
+    Reply *reply = [[notification userInfo] valueForKey:@"newReply"];
+    [topicArray insertObject:reply atIndex:0];
+    [self.tableView reloadData];
 }
 
 - (void)tellAction:(id)sender
@@ -537,12 +546,10 @@
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
     else
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"回复:" message:nil delegate:self cancelButtonTitle:@"发布" otherButtonTitles:@"取消", nil];
-        alertView.tag = 1;
-        [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        UITextField *textField = [alertView textFieldAtIndex:0];
-        textField.placeholder = @"请输入回复内容...";
-        [alertView show];
+        ReplyView *replyView = [[ReplyView alloc] init];
+        replyView.hidesBottomBarWhenPushed = YES;
+        replyView.starttimeStr = starttimeStr;
+        [self.navigationController pushViewController:replyView animated:YES];
     }
 }
 
@@ -554,80 +561,6 @@
         {
             [self getQuestion];
         }
-        else if(alertView.tag == 1)
-        {
-            UITextField *textField = [alertView textFieldAtIndex:0];
-            NSString *replyContent = textField.text;
-            
-            if(replyContent.length == 0)
-            {
-                [Tool showCustomHUD:@"回复内容不能为空" andView:self.view andImage:nil andAfterDelay:1.2];
-                return;
-            }
-            
-            //生成订单提交URL
-            NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-            [param setValue:starttimeStr forKey:@"starttime"];
-            [param setValue:replyContent forKey:@"replyContent"];
-            UserInfo *userinfo = [[UserModel Instance] getUserInfo];
-            [param setValue:userinfo.regUserId forKey:@"regUserId"];
-            
-            NSString *replySign = [Tool serializeSign:[NSString stringWithFormat:@"%@%@", api_base_url, api_addDayQuestionReply] params:param];
-            
-            NSString *replyUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_addDayQuestionReply];
-            
-            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:replyUrl]];
-            [request setUseCookiePersistence:NO];
-            [request setTimeOutSeconds:30];
-            [request setPostValue:replySign forKey:@"sign"];
-            [request setPostValue:starttimeStr forKey:@"starttime"];
-            [request setPostValue:replyContent forKey:@"replyContent"];
-            [request setPostValue:userinfo.regUserId forKey:@"regUserId"];
-            [request setDelegate:self];
-            [request setDidFailSelector:@selector(requestCCFailed:)];
-            [request setDidFinishSelector:@selector(requestReply:)];
-            [request startAsynchronous];
-            
-            request.hud = [[MBProgressHUD alloc] initWithView:self.view];
-            [Tool showHUD:@"请稍后..." andView:self.view andHUD:request.hud];
-        }
-    }
-}
-
-- (void)requestReply:(ASIHTTPRequest *)request
-{
-    if (request.hud)
-    {
-        [request.hud hide:YES];
-    }
-    
-    [request setUseCookiePersistence:YES];
-    
-    NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSError *error;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    
-    NSString *state = [[json objectForKey:@"header"] objectForKey:@"state"];
-    if ([state isEqualToString:@"0000"] == NO) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
-                                                     message:[[json objectForKey:@"header"] objectForKey:@"msg"]
-                                                    delegate:nil
-                                           cancelButtonTitle:@"确定"
-                                           otherButtonTitles:nil];
-        [av show];
-        return;
-    }
-    else
-    {
-        [Tool showCustomHUD:[[json objectForKey:@"header"] objectForKey:@"msg"] andView:self.view andImage:nil andAfterDelay:1.2f];
-        
-        Reply *reply = [Tool readJsonDicToObj:[json objectForKey:@"data"] andObjClass:[Reply class]];
-        UserInfo *userinfo = [[UserModel Instance] getUserInfo];
-        reply.regUserName = userinfo.regUserName;
-        reply.regUserId = userinfo.regUserId;
-        [topicArray insertObject:reply atIndex:0];
-        [self.tableView reloadData];
     }
 }
 @end
