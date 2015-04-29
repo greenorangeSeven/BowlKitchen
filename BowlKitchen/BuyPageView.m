@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "LoginView.h"
 #import "RegisterView.h"
+#import <ShareSDK/ShareSDK.h>
 
 @interface BuyPageView ()<UIAlertViewDelegate>
 {
@@ -165,6 +166,36 @@
 
 - (IBAction)shareAction:(UIButton *)sender
 {
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"大碗厨猪脚,好吃又不贵"
+                                       defaultContent:@"能量碗"
+                                                image:[ShareSDK imageWithUrl:commodity.imgURL]
+                                                title:@"能量碗"
+                                                  url:@"http://www.dawanchu.com/foods/"
+                                          description:@"大碗厨猪脚,好吃又不贵"
+                                            mediaType:SSPublishContentMediaTypeNews];
+    //创建弹出菜单容器
+    id<ISSContainer> container = [ShareSDK container];
+    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+    
+    //弹出分享菜单
+    [ShareSDK showShareActionSheet:container
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions:nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    [Tool showCustomHUD:@"分享成功" andView:self.view andImage:nil andAfterDelay:1.2f];
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    [Tool showCustomHUD:@"分享失败" andView:self.view andImage:nil andAfterDelay:1.2f];
+                                }
+                            }];
 }
 
 - (IBAction)buyAction:(UIButton *)sender

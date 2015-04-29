@@ -36,9 +36,9 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>
-			<string>cb_box_off</string>
+			<string></string>
 			<key>CFBundleURLName</key>
-			<string>wx</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx7be4f19f225afce5</string>
