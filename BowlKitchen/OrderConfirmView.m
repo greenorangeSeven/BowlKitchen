@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     hud = [[MBProgressHUD alloc] initWithView:self.view];
-    payType = 1;
+    payType = 2;
     self.hidesBottomBarWhenPushed=YES;
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
@@ -92,21 +92,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-- (IBAction)shopTypeAction:(UIButton *)sender
-{
-    [self.shopTypeBtn setBackgroundColor:[UIColor colorWithRed:0.91 green:0.55 blue:0 alpha:1]];
-    [self.alipayTypeBtn setBackgroundColor:[UIColor colorWithRed:0.58 green:0 blue:0.2 alpha:1]];
-    payType = 1;
-}
-
-- (IBAction)alipayTypeAction:(UIButton *)sender
-{
-    [self.alipayTypeBtn setBackgroundColor:[UIColor colorWithRed:0.91 green:0.55 blue:0 alpha:1]];
-    [self.shopTypeBtn setBackgroundColor:[UIColor colorWithRed:0.58 green:0 blue:0.2 alpha:1]];
-    payType = 0;
-}
-
 
 - (void)getMyAddress
 {
