@@ -328,9 +328,9 @@
     //构造分享内容
     id<ISSContent> publishContent = [ShareSDK content:@"能量碗"
                                        defaultContent:@"能量碗"
-                                                image:[ShareSDK imageWithPath:imageRec.shareImgFull]
+                                                image:[ShareSDK imageWithUrl:imageRec.shareImgFull]
                                                 title:@"能量碗"
-                                                  url:@"http://www.668app.com"
+                                                  url:@"http://www.dawanchu.com/foods/"
                                           description:@"能量碗"
                                             mediaType:SSPublishContentMediaTypeNews];
     //创建弹出菜单容器
