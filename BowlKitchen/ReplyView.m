@@ -8,6 +8,7 @@
 
 #import "ReplyView.h"
 #import "Reply.h"
+#import "IQKeyBoardManager/IQKeyboardManager.h"
 
 @interface ReplyView ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [IQKeyboardManager sharedManager].enable = NO;
     [self.navigationController setNavigationBarHidden:YES];
 }
 
@@ -101,6 +103,7 @@
         reply.regUserId = userinfo.regUserId;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"noticeReload" object:self userInfo:[NSDictionary dictionaryWithObject:reply forKey:@"newReply"]];
+        [IQKeyboardManager sharedManager].enable = YES;
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

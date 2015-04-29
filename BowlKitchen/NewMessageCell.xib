@@ -17,13 +17,13 @@
                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H26-SM-frd">
                         <rect key="frame" x="0.0" y="8" width="320" height="72"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGw-vu-ipB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGw-vu-ipB">
                                 <rect key="frame" x="8" y="3" width="260" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcG-W6-LZg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcG-W6-LZg">
                                 <rect key="frame" x="8" y="25" width="260" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,6 +38,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8QK-im-c0n" firstAttribute="leading" secondItem="jGw-vu-ipB" secondAttribute="trailing" constant="28" id="4P4-4d-WdQ"/>
+                            <constraint firstItem="jGw-vu-ipB" firstAttribute="leading" secondItem="H26-SM-frd" secondAttribute="leading" constant="8" id="98Y-XQ-GjK"/>
+                            <constraint firstItem="YcG-W6-LZg" firstAttribute="leading" secondItem="H26-SM-frd" secondAttribute="leading" constant="8" id="EW8-10-qIe"/>
+                            <constraint firstItem="8QK-im-c0n" firstAttribute="leading" secondItem="YcG-W6-LZg" secondAttribute="trailing" constant="28" id="VfU-gZ-ahX"/>
                             <constraint firstAttribute="trailing" secondItem="8QK-im-c0n" secondAttribute="trailing" constant="8" id="jI8-Ns-aBO"/>
                         </constraints>
                     </view>

@@ -55,30 +55,29 @@
                         <action selector="pushAction:" destination="-1" eventType="touchUpInside" id="nt0-s1-OF1"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57E-tQ-lJZ">
-                    <rect key="frame" x="0.0" y="68" width="320" height="500"/>
-                    <color key="backgroundColor" red="0.93725490196078431" green="0.93333333333333335" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="57E-tQ-lJZ">
+                    <rect key="frame" x="0.0" y="68" width="320" height="172"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.32549019607843138" green="0.32549019607843138" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93333333330000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="57E-tQ-lJZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2sD-mz-Oww"/>
                 <constraint firstAttribute="trailing" secondItem="KmW-1j-tP7" secondAttribute="trailing" constant="8" id="6WP-59-Sdn"/>
+                <constraint firstAttribute="trailing" secondItem="57E-tQ-lJZ" secondAttribute="trailing" id="EOq-qA-gXf"/>
                 <constraint firstItem="3LM-Oy-9o9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fd6-um-7Me"/>
                 <constraint firstItem="KmW-1j-tP7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="G8H-Xu-fRz"/>
                 <constraint firstAttribute="trailing" secondItem="3LM-Oy-9o9" secondAttribute="trailing" id="PNp-im-po7"/>
-                <constraint firstAttribute="bottom" secondItem="57E-tQ-lJZ" secondAttribute="bottom" id="ZRa-Aq-RHR"/>
-                <constraint firstAttribute="trailing" secondItem="57E-tQ-lJZ" secondAttribute="trailing" id="a0O-pi-mRt"/>
-                <constraint firstItem="57E-tQ-lJZ" firstAttribute="top" secondItem="3LM-Oy-9o9" secondAttribute="bottom" id="c9K-7m-UuI"/>
                 <constraint firstAttribute="centerX" secondItem="68Y-ll-WNj" secondAttribute="centerX" id="jAK-Wh-9wm"/>
                 <constraint firstItem="3LM-Oy-9o9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kFS-GN-VAJ"/>
+                <constraint firstItem="57E-tQ-lJZ" firstAttribute="top" secondItem="3LM-Oy-9o9" secondAttribute="bottom" id="nNw-ln-toA"/>
                 <constraint firstItem="PDZ-8V-vfd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="nWs-eW-zjL"/>
-                <constraint firstItem="57E-tQ-lJZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ryU-GJ-2ep"/>
                 <constraint firstItem="PDZ-8V-vfd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="spi-ML-9DW"/>
             </constraints>
-            <point key="canvasLocation" x="536" y="274"/>
+            <point key="canvasLocation" x="-58" y="127"/>
         </view>
     </objects>
     <resources>
