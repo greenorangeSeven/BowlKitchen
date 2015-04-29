@@ -149,7 +149,7 @@
     }
     
     [request setUseCookiePersistence:YES];
-    
+    NSLog(@"the res:%@",request.responseString);
     NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
