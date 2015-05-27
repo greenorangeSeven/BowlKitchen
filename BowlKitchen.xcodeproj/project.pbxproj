@@ -2607,8 +2607,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiliang Zhou (X5YK78R2A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiliang Zhou (X5YK78R2A4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2630,7 +2630,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "1b4e680f-fb30-419d-83ed-6f71b73fe23f";
+				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2652,8 +2652,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiliang Zhou (X5YK78R2A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhiliang Zhou (X5YK78R2A4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2668,7 +2668,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "1b4e680f-fb30-419d-83ed-6f71b73fe23f";
+				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2709,7 +2709,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0a9510f1-f872-4d82-a69c-0c83fd9adb13";
+				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
 			};
 			name = Debug;
 		};
@@ -2748,7 +2748,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0a9510f1-f872-4d82-a69c-0c83fd9adb13";
+				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
 			};
 			name = Release;
 		};
@@ -2768,7 +2768,7 @@
 				INFOPLIST_FILE = BowlKitchenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0a9510f1-f872-4d82-a69c-0c83fd9adb13";
+				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BowlKitchen.app/BowlKitchen";
 			};
 			name = Debug;
@@ -2785,7 +2785,7 @@
 				INFOPLIST_FILE = BowlKitchenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0a9510f1-f872-4d82-a69c-0c83fd9adb13";
+				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BowlKitchen.app/BowlKitchen";
 			};
 			name = Release;
