@@ -41,7 +41,7 @@ typedef enum {
 } AKShowHideFrom;
 
 // Current active view controller
-@property (nonatomic, strong) UIViewController *selectedViewController;
+
 
 - (void)loadTabs;
 - (void)showTabBar:(AKShowHideFrom)showHideFrom animated:(BOOL)animated;
