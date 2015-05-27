@@ -26,6 +26,8 @@
 
 @interface AKTabBarController : UIViewController <AKTabBarDelegate, UINavigationControllerDelegate>
 
+@property (nonatomic, strong) UIViewController *selectedViewController;
+
 // View Controllers handled by the tab bar controller.
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 

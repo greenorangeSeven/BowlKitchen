@@ -35,8 +35,6 @@
     self.commodityNameLabel.text = self.commodity.commodityName;
     self.commodityPriceLabel.text = [NSString stringWithFormat:@"￥%0.2f",self.commodity.price];
     [self.commodityImg sd_setImageWithURL:[NSURL URLWithString:self.commodity.imgURL]];
-    
-    self.hidesBottomBarWhenPushed=YES;
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
     titleLabel.text = @"订单";
