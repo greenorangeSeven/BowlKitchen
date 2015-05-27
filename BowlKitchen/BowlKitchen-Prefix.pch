@@ -123,6 +123,9 @@
 //修改收货地址接口
 #define api_modiReceivingAddress @"apiOrder/modiReceivingAddress.htm"
 
+//意见反馈接口
+#define api_addAfterFell @"apiRegUser/addAfterFell.htm"
+
 //生成支付宝订单参数
 #define api_createAlipayParams @"payment/createAlipayParams.htm"
 

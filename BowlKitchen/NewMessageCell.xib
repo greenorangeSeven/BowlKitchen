@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H26-SM-frd">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H26-SM-frd">
                         <rect key="frame" x="0.0" y="8" width="320" height="72"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGw-vu-ipB">
@@ -29,8 +28,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QK-im-c0n">
-                                <rect key="frame" x="296" y="25" width="16" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QK-im-c0n">
+                                <rect key="frame" x="296" y="25" width="16" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="kuW-rM-UkL"/>
+                                    <constraint firstAttribute="height" constant="18" id="z3K-jg-B2d"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -38,19 +41,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8QK-im-c0n" firstAttribute="leading" secondItem="jGw-vu-ipB" secondAttribute="trailing" constant="28" id="4P4-4d-WdQ"/>
-                            <constraint firstItem="jGw-vu-ipB" firstAttribute="leading" secondItem="H26-SM-frd" secondAttribute="leading" constant="8" id="98Y-XQ-GjK"/>
-                            <constraint firstItem="YcG-W6-LZg" firstAttribute="leading" secondItem="H26-SM-frd" secondAttribute="leading" constant="8" id="EW8-10-qIe"/>
-                            <constraint firstItem="8QK-im-c0n" firstAttribute="leading" secondItem="YcG-W6-LZg" secondAttribute="trailing" constant="28" id="VfU-gZ-ahX"/>
-                            <constraint firstAttribute="trailing" secondItem="8QK-im-c0n" secondAttribute="trailing" constant="8" id="jI8-Ns-aBO"/>
+                            <constraint firstAttribute="trailing" secondItem="jGw-vu-ipB" secondAttribute="trailing" constant="52" id="6Aa-KG-Irb"/>
+                            <constraint firstAttribute="bottom" secondItem="8QK-im-c0n" secondAttribute="bottom" constant="29" id="Bbf-f0-6mt"/>
+                            <constraint firstAttribute="width" constant="320" id="Gvv-CQ-DJR"/>
+                            <constraint firstItem="8QK-im-c0n" firstAttribute="top" secondItem="H26-SM-frd" secondAttribute="top" constant="25" id="JLS-Tj-Dp6"/>
+                            <constraint firstItem="YcG-W6-LZg" firstAttribute="top" secondItem="jGw-vu-ipB" secondAttribute="bottom" constant="1" id="NEz-6q-DJD"/>
+                            <constraint firstAttribute="bottom" secondItem="YcG-W6-LZg" secondAttribute="bottom" constant="8" id="PiF-CZ-ib1"/>
+                            <constraint firstItem="8QK-im-c0n" firstAttribute="leading" secondItem="YcG-W6-LZg" secondAttribute="trailing" constant="28" id="RbG-jd-5DZ"/>
+                            <constraint firstItem="jGw-vu-ipB" firstAttribute="top" secondItem="H26-SM-frd" secondAttribute="top" constant="3" id="Upo-CD-w3V"/>
+                            <constraint firstItem="YcG-W6-LZg" firstAttribute="leading" secondItem="H26-SM-frd" secondAttribute="leading" constant="8" id="Uw1-wz-4kA"/>
+                            <constraint firstItem="jGw-vu-ipB" firstAttribute="leading" secondItem="H26-SM-frd" secondAttribute="leading" constant="8" id="Z3U-XR-XJb"/>
+                            <constraint firstAttribute="height" constant="72" id="gQI-Og-Xa1"/>
+                            <constraint firstAttribute="centerY" secondItem="8QK-im-c0n" secondAttribute="centerY" id="gyd-f7-mbq"/>
+                            <constraint firstAttribute="trailing" secondItem="8QK-im-c0n" secondAttribute="trailing" constant="8" id="iZ7-x4-ZEv"/>
+                            <constraint firstItem="YcG-W6-LZg" firstAttribute="top" secondItem="jGw-vu-ipB" secondAttribute="bottom" constant="1" id="kws-T2-hEp"/>
+                            <constraint firstItem="8QK-im-c0n" firstAttribute="leading" secondItem="YcG-W6-LZg" secondAttribute="trailing" constant="28" id="qFL-5e-MhF"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="H26-SM-frd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MQy-BS-Iva"/>
-                    <constraint firstItem="H26-SM-frd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="OFI-xM-koU"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="H26-SM-frd" secondAttribute="trailing" constant="-8" id="jfs-PC-BMx"/>
+                    <constraint firstAttribute="bottom" secondItem="H26-SM-frd" secondAttribute="bottom" constant="8" id="F7h-8H-ce6"/>
+                    <constraint firstItem="H26-SM-frd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="H1Q-p7-PCX"/>
+                    <constraint firstItem="H26-SM-frd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iUX-Uk-FfL"/>
+                    <constraint firstAttribute="trailing" secondItem="H26-SM-frd" secondAttribute="trailing" id="zhH-7p-DIR"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

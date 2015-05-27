@@ -10,7 +10,7 @@
 
 @interface DayQuestionPageView : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *questionText;
+@property (weak, nonatomic) IBOutlet UILabel *questionText;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *faceIv;

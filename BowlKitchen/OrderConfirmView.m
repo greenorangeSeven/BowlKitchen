@@ -77,7 +77,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAddress:) name:@"updateAddress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backToBuy) name:ORDER_PAY_NOTIC object:nil];
-    _fieldArray = [NSArray arrayWithObjects:@"11:30", @"12:30" ,@"1:30", @"2:30", @"3:30", @"4:30", @"5:30", @"6:30", @"7:30", @"8:30",nil];
+    _fieldArray = [NSArray arrayWithObjects:@"11:00 - 18:30",nil];
     
     [self getMyAddress];
 }

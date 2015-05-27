@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIView *myOrderView;
 @property (weak, nonatomic) IBOutlet UIView *myAddressView;
 @property (weak, nonatomic) IBOutlet UIView *switchUserView;
+@property (weak, nonatomic) IBOutlet UIView *opinionView;
 
 @end

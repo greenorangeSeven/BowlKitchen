@@ -12,6 +12,7 @@
 #import "MyInfoView.h"
 #import "MyOrderView.h"
 #import "MyAddressView.h"
+#import "OpinionView.h"
 
 @interface SttingPageView ()<UIAlertViewDelegate>
 
@@ -50,6 +51,10 @@
     UITapGestureRecognizer *userRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchUser:)];
     
     [self.switchUserView addGestureRecognizer:userRecognizer];
+    
+    UITapGestureRecognizer *opinionRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(opinionAction:)];
+    
+    [self.opinionView addGestureRecognizer:opinionRecognizer];
 }
 
 - (void)myInfoAction:(id)sender
@@ -77,6 +82,17 @@
         MyAddressView *myAddressView = [[MyAddressView alloc] init];
         myAddressView.type = 1;
         [self.navigationController pushViewController:myAddressView animated:YES];
+    }
+}
+
+- (void)opinionAction:(id)sender
+{
+    if(![[UserModel Instance] isLogin])
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+    else
+    {
+        OpinionView *opinionView = [[OpinionView alloc] init];
+        [self.navigationController pushViewController:opinionView animated:YES];
     }
 }
 

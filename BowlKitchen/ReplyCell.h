@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ReplyCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UITextView *replyContent;
+@property (weak, nonatomic) IBOutlet UILabel *replyContent;
 @property (weak, nonatomic) IBOutlet UIButton *zanBtn;
 
 @end

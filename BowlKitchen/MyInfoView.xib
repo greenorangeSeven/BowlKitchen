@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyInfoView">
@@ -101,8 +101,12 @@
                         <action selector="updateAvatarImg:" destination="-1" eventType="touchUpInside" id="bfK-7N-BEU"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="default_head" translatesAutoresizingMaskIntoConstraints="NO" id="Osk-8a-0Ho">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_head" translatesAutoresizingMaskIntoConstraints="NO" id="Osk-8a-0Ho">
                     <rect key="frame" x="17" y="8" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="6bk-lg-9lO"/>
+                        <constraint firstAttribute="height" constant="75" id="FTg-Cg-i0h"/>
+                    </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="点击修改昵称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFa-jh-qNI">
                     <rect key="frame" x="121" y="8" width="137" height="30"/>
@@ -127,15 +131,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="EN8-Q3-FQv" firstAttribute="top" secondItem="Osk-8a-0Ho" secondAttribute="bottom" constant="13" id="0qd-LQ-pvZ"/>
                 <constraint firstAttribute="centerX" secondItem="Oix-Dy-bmv" secondAttribute="centerX" id="1FY-Zv-X8H"/>
                 <constraint firstItem="XCu-e0-syV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2mt-Hr-d74"/>
                 <constraint firstAttribute="bottom" secondItem="XCu-e0-syV" secondAttribute="bottom" constant="87" id="BCD-qg-5ow"/>
                 <constraint firstAttribute="bottom" secondItem="YLX-6l-1m6" secondAttribute="bottom" constant="23" id="G5X-Qh-4uD"/>
                 <constraint firstItem="2U5-5M-6Y6" firstAttribute="leading" secondItem="tRo-Sm-mSq" secondAttribute="trailing" constant="-85" id="KFE-7p-hgK"/>
+                <constraint firstItem="Osk-8a-0Ho" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="KW8-ET-VCu"/>
                 <constraint firstItem="tRo-Sm-mSq" firstAttribute="leading" secondItem="Osk-8a-0Ho" secondAttribute="trailing" constant="22" id="OWh-6r-luy"/>
                 <constraint firstAttribute="trailing" secondItem="cFa-jh-qNI" secondAttribute="trailing" constant="62" id="PIG-ir-Iyh"/>
+                <constraint firstItem="tRo-Sm-mSq" firstAttribute="leading" secondItem="Osk-8a-0Ho" secondAttribute="trailing" constant="22" id="bxY-N2-YOG"/>
                 <constraint firstAttribute="centerX" secondItem="YLX-6l-1m6" secondAttribute="centerX" id="c1o-wj-8f3"/>
                 <constraint firstAttribute="centerX" secondItem="TUh-jx-fjB" secondAttribute="centerX" id="dgK-S7-yiN"/>
+                <constraint firstItem="Osk-8a-0Ho" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="fs5-Pv-ntI"/>
                 <constraint firstItem="EN8-Q3-FQv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h3b-ry-EjE"/>
                 <constraint firstAttribute="trailing" secondItem="XCu-e0-syV" secondAttribute="trailing" id="sFi-ey-rOh"/>
                 <constraint firstItem="cFa-jh-qNI" firstAttribute="leading" secondItem="Osk-8a-0Ho" secondAttribute="trailing" constant="29" id="txH-PU-rri"/>

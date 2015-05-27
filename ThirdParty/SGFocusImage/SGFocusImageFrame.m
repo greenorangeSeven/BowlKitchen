@@ -9,7 +9,12 @@
 #import "SGFocusImageFrame.h"
 #import "SGFocusImageItem.h"
 #import <objc/runtime.h>
-#define ITEM_WIDTH 320.0
+//#define ITEM_WIDTH 375.0
+//#ifdef IS_IPHONE_5
+//#define ITEM_WIDTH 320.0
+//#else
+//#define ITEM_WIDTH 375.0
+//#endif
 
 @interface SGFocusImageFrame () {
     UIScrollView *_scrollView;
@@ -88,14 +93,20 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
 #pragma mark - private methods
 - (void)setupViews
 {
+    float ITEM_WIDTH = 320.0;
+    if(IS_IPHONE_6)
+    {
+        ITEM_WIDTH = 375.0;
+    }
+    
     NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
     imageItemsArray = imageItems;
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scrollView.scrollsToTop = NO;
     float space = 0;
-    CGSize size = CGSizeMake(320, 0);
+    CGSize size = CGSizeMake(ITEM_WIDTH, 0);
     //    _pageControl = [[GPSimplePageView alloc] initWithFrame:CGRectMake(self.bounds.size.width *.5 - size.width *.5, self.bounds.size.height - size.height, size.width, size.height)];
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-20, 320, 10)];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-20, ITEM_WIDTH, 10)];
     _pageControl.userInteractionEnabled = NO;
     _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     _pageControl.pageIndicatorTintColor = [UIColor grayColor];
@@ -131,6 +142,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
         [imageView release];
     }
     [tapGestureRecognize release];
+    
     if ([imageItems count]>1)
     {
         [_scrollView setContentOffset:CGPointMake(ITEM_WIDTH, 0) animated:NO] ;
@@ -152,6 +164,11 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
     
     CGFloat targetX = _scrollView.contentOffset.x + _scrollView.frame.size.width;
     NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
+    float ITEM_WIDTH = 320.0;
+    if(IS_IPHONE_6)
+    {
+        ITEM_WIDTH = 375.0;
+    }
     targetX = (int)(targetX/ITEM_WIDTH) * ITEM_WIDTH;
     [self moveToTargetPosition:targetX];
     
@@ -186,6 +203,13 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     float targetX = scrollView.contentOffset.x;
+    
+    float ITEM_WIDTH = 320.0;
+    if(IS_IPHONE_6)
+    {
+        ITEM_WIDTH = 375.0;
+    }
+    
     NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
     if ([imageItems count]>=3)
     {
@@ -229,6 +253,11 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
 {
     if (!decelerate)
     {
+        float ITEM_WIDTH = 320.0;
+        if(IS_IPHONE_6)
+        {
+            ITEM_WIDTH = 375.0;
+        }
         CGFloat targetX = _scrollView.contentOffset.x + _scrollView.frame.size.width;
         targetX = (int)(targetX/ITEM_WIDTH) * ITEM_WIDTH;
         [self moveToTargetPosition:targetX];
@@ -239,6 +268,11 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
 - (void)scrollToIndex:(int)aIndex
 {
     NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
+    float ITEM_WIDTH = 320.0;
+    if(IS_IPHONE_6)
+    {
+        ITEM_WIDTH = 375.0;
+    }
     if ([imageItems count]>1)
     {
         if (aIndex >= ([imageItems count]-2))

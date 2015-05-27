@@ -285,6 +285,8 @@
 		04FC74D01AC250150052A059 /* OrderCommoditySubmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FC74CF1AC250150052A059 /* OrderCommoditySubmit.m */; };
 		04FC74D41AC2509E0052A059 /* OrderSubmitVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FC74D31AC2509E0052A059 /* OrderSubmitVO.m */; };
 		04FC74D71AC258690052A059 /* Commodity.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FC74D61AC258690052A059 /* Commodity.m */; };
+		140EF57A1B16229F000F24CE /* OpinionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 140EF5781B16229F000F24CE /* OpinionView.m */; };
+		140EF57B1B16229F000F24CE /* OpinionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140EF5791B16229F000F24CE /* OpinionView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -926,6 +928,9 @@
 		04FC74D31AC2509E0052A059 /* OrderSubmitVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSubmitVO.m; sourceTree = "<group>"; };
 		04FC74D51AC258690052A059 /* Commodity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commodity.h; sourceTree = "<group>"; };
 		04FC74D61AC258690052A059 /* Commodity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commodity.m; sourceTree = "<group>"; };
+		140EF5771B16229F000F24CE /* OpinionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpinionView.h; sourceTree = "<group>"; };
+		140EF5781B16229F000F24CE /* OpinionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionView.m; sourceTree = "<group>"; };
+		140EF5791B16229F000F24CE /* OpinionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpinionView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1099,6 +1104,9 @@
 				04E1F2DD1ACA8E610080DD25 /* ForgotPwdView.h */,
 				04E1F2DE1ACA8E610080DD25 /* ForgotPwdView.m */,
 				04E1F2DF1ACA8E610080DD25 /* ForgotPwdView.xib */,
+				140EF5771B16229F000F24CE /* OpinionView.h */,
+				140EF5781B16229F000F24CE /* OpinionView.m */,
+				140EF5791B16229F000F24CE /* OpinionView.xib */,
 			);
 			name = SttingPage;
 			sourceTree = "<group>";
@@ -2306,6 +2314,7 @@
 				04E90D561AAD3F9C005409D8 /* cb_dark_off.png in Resources */,
 				04E90D381AAD3F9C005409D8 /* LICENSE in Resources */,
 				04E90D681AAD3F9C005409D8 /* cd_my_on.png in Resources */,
+				140EF57B1B16229F000F24CE /* OpinionView.xib in Resources */,
 				0454108C1AB12435003D8251 /* LoginView.xib in Resources */,
 				04E90D671AAD3F9C005409D8 /* cd_my_off@2x.png in Resources */,
 				04CA7EED1AC644C700020978 /* MyAddressView.xib in Resources */,
@@ -2393,6 +2402,7 @@
 				04E90AE51AAD3E80005409D8 /* BowlKitchen.xcdatamodeld in Sources */,
 				04E90D3B1AAD3F9C005409D8 /* NSData+ImageContentType.m in Sources */,
 				04E90D481AAD3F9C005409D8 /* UIImageView+WebCache.m in Sources */,
+				140EF57A1B16229F000F24CE /* OpinionView.m in Sources */,
 				04D6D1481AE49EB000AE7697 /* CommDetailView.m in Sources */,
 				04E90CE11AAD3F9B005409D8 /* AFOSCClient.m in Sources */,
 				045E92A71AEF762F0070E3FD /* ReplyView.m in Sources */,

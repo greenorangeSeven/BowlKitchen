@@ -30,6 +30,8 @@
     BOOL _reloading;
     NSMutableArray *topicArray;
     UIButton *zanBtn;
+    
+    ReplyCell *_cell;
 }
 
 @end
@@ -70,6 +72,8 @@
         _refreshHeaderView = view;
     }
     [_refreshHeaderView refreshLastUpdatedDate];
+    
+    _cell = [[[NSBundle mainBundle] loadNibNamed:@"ReplyCell" owner:self options:nil] lastObject];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -277,9 +281,12 @@
             return 50;
         }
         Reply *reply = [topicArray objectAtIndex:indexPath.row];
-        int height = [Tool getTextHeight:self.tableView.frame.size.width andUIFont:[UIFont fontWithName:@"System" size:14] andText:reply.replyContent];
-        height += 50;
-        return height;
+        CGSize size = [_cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        _cell.replyContent.text = reply.replyContent;
+        CGSize textViewSize = [_cell.replyContent sizeThatFits:CGSizeMake(_cell.replyContent.frame.size.width, 100000.0f)];
+        return 71 > size.height+1.0f+textViewSize.height-20 ? 71 : size.height+1.0f+textViewSize.height-20;
+        
+        
     }
     else
     {
