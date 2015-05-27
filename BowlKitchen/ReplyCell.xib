@@ -24,7 +24,7 @@
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-F6-z2N">
                         <rect key="frame" x="236" y="51" width="80" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                         <state key="normal" title="赞(10)" image="zan_nor">
                             <color key="titleColor" red="0.93725490196078431" green="0.53333333333333333" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,6 +43,7 @@
                     <constraint firstAttribute="trailing" secondItem="2U6-PL-j9N" secondAttribute="trailing" id="eL6-1G-3Ej"/>
                     <constraint firstItem="2U6-PL-j9N" firstAttribute="top" secondItem="b1U-F6-z2N" secondAttribute="bottom" id="gq9-Xr-ok8"/>
                     <constraint firstItem="QvK-hL-HyX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="mZh-HH-z0E"/>
+                    <constraint firstItem="b1U-F6-z2N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="236" id="mpu-mN-azW"/>
                     <constraint firstItem="2U6-PL-j9N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="q3g-4A-N8z"/>
                     <constraint firstItem="QvK-hL-HyX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="rAK-65-gPs"/>
                 </constraints>
