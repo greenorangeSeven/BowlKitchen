@@ -14,6 +14,7 @@
 #import "LoginView.h"
 #import "RegisterView.h"
 #import <ShareSDK/ShareSDK.h>
+#import "AppDelegate.h"
 
 @interface BuyPageView ()<UIAlertViewDelegate>
 {
@@ -25,15 +26,17 @@
 
 @implementation BuyPageView
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
-    titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 140, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:14];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = [Tool getColorForMain];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = titleLabel;
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 21, 22)];
     [rBtn addTarget:self action:@selector(menuAction:) forControlEvents:UIControlEventTouchUpInside];
     [rBtn setImage:[UIImage imageNamed:@"navigation_menu"] forState:UIControlStateNormal];
@@ -54,6 +57,23 @@
     layer.borderWidth = 1.0f;
     layer.cornerRadius = 3.0;
     [self getCommodityInfo];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    AppDelegate *appdel = [[UIApplication sharedApplication] delegate];
+    UIViewController *vc = [appdel.tabBarController.viewControllers objectAtIndex:1];
+    
+    if (appdel.tabBarController.selectedViewController == vc)
+    {
+        if ([vc isKindOfClass:[UINavigationController class]])
+            [(UINavigationController *)appdel.tabBarController.selectedViewController popToRootViewControllerAnimated:YES];
+    }
+    else
+    {
+        [[self navigationItem] setTitle:[vc title]];
+        appdel.tabBarController.selectedViewController = vc;
+    }
 }
 
 - (void)tellAction:(id)sender
@@ -206,6 +226,7 @@
     {
         OrderView *orderView = [[OrderView alloc] init];
         orderView.commodity = commodity;
+        orderView.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:orderView animated:YES];
     }
 }
